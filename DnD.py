@@ -67,13 +67,11 @@ def pokeball(mob):
 
 
 def combat(mob, user):
-    count = 0
     while mob.hit_points > 0:
         roll(mob, user)
         encounter_response = input("\nEnter 'fight', 'run' or 'items': ")
 
         if encounter_response == "fight":
-            count += 1
             # The player swings first
             if user.strength_roll >= mob.armor_class:
                 print("\nYou launch your self forward in a fearsome attack")
