@@ -48,7 +48,6 @@ def items(mob, user):
                 player.items_list[0] = "PokeBall(" + (str(int(x) - 1)) + "x)"
                 print("You used a PokeBall!")
                 pokeball(mob)
-
                 break
     elif item_number == "2":
         player.hit_points += 20
@@ -105,6 +104,8 @@ def combat(mob, user):
                 print("Your health went down to " + str(user.hit_points) + "! ")
         elif encounter_response == "items":
             items(mob, user)
+        else:
+            print("That wasn't an option try again")
 
 
 def input_guess():
