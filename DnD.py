@@ -34,7 +34,7 @@ def roll(mob, user):
     user.hit_roll = randint(1, 10)
 
 
-def items(mob, user, count):
+def items(mob, user):
     i = 1
     for x in user.items_list:
         print(str(i) + ". " + str(x))
@@ -47,7 +47,7 @@ def items(mob, user, count):
                     del player.items_list[0]
                 player.items_list[0] = "PokeBall(" + (str(int(x) - 1)) + "x)"
                 print("You used a PokeBall!")
-                pokeball(mob, count)
+                pokeball(mob)
 
                 break
     elif item_number == "2":
@@ -60,7 +60,7 @@ def items(mob, user, count):
         print("Try a again, that wasn't a valid input")
 
 
-def pokeball(mob, count):
+def pokeball(mob):
     if mob.hit_points < 18:
         print("Caught " + mob.name + "!")
         mob.hit_points = 0
@@ -106,7 +106,7 @@ def combat(mob, user):
                 print("\nPlayer health bar:" + "■" * user.hit_points)
                 print("Your health went down to " + str(user.hit_points) + "! ")
         elif encounter_response == "items":
-            items(mob, user, count)
+            items(mob, user)
 
 
 def input_guess():
