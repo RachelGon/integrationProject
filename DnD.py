@@ -61,8 +61,9 @@ def items(mob, user, count):
 
 
 def pokeball(mob, count):
-    if mob.hit_points < (mob.hit_points * .5) and count > 3:
+    if mob.hit_points < 18:
         print("Caught " + mob.name + "!")
+        mob.hit_points = 0
 
 
 def combat(mob, user):
@@ -108,7 +109,7 @@ def combat(mob, user):
             items(mob, user, count)
 
 
-def input_geuss():
+def input_guess():
     while True:
         try:
             guess = int(input("Guess the Number: "))
@@ -127,7 +128,7 @@ def bonus():
     else:
         print("The number is odd")
 
-    guess = input_geuss()
+    guess = input_guess()
 
     if guess != random:
         print("You didn't guess it!")
@@ -136,7 +137,7 @@ def bonus():
 
 
 player = Player("Charmander", 18, 39, (randint(1, 20) + 1), (randint(1, 10)), ["PokeBall(3x)", "Healing Potion"])
-boar = Mob("Bulbasaur", 11, 45, (randint(1, 20) + 1), randint(1, 10))
+boar = Mob("Bulbasaur", 12, 41, (randint(1, 20) + 1), randint(1, 10))
 bonus()
 combat(boar, player)
 
